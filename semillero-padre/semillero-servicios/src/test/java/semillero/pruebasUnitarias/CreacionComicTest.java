@@ -85,12 +85,23 @@ public class CreacionComicTest {
 	 * @author Pablo
 	 *
 	 */
+	@Test
 	public void validarComicsInactivos()
 	{
+		ArrayList<ComicDTO> inactivos;
+		log.info("Inicia ejecución del método validarComicsInactivos()");
 		
-		log.debug("Inicia ejecución del método validarComicsInactivos()");
+		try {
+			
+			inactivos = getComicsInactivos();
+			
+		}catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
 		
-		
+		log.info("Finaliza la ejecucion del metodo validarComicsInactivos()");
+
 	}
 	
 	/**
@@ -100,8 +111,6 @@ public class CreacionComicTest {
 	 * @author Pablo
 	 *
 	 */
-	
-	
 	@Test
 	public void validarComicsActivos()
 	{
@@ -115,17 +124,19 @@ public class CreacionComicTest {
 		ArrayList<ComicDTO> activos = getComicsActivos();
 		
 		try {
-			Assert.assertTrue(longitudActivos != activos.size());
 
 			if(longitudActivos!=activos.size())
 			{
+				Assert.assertFalse(longitudActivos==activos.size());
 				log.info("Se ha generado un error funcional probando el test validarComicsActivos()");
 				throw new Exception("El numero de comics activos no es el esperado");
-			}else
-			{
-				log.info("Lista de comics activos");
-				mostrarLista(activos);	
 			}
+			
+			Assert.assertTrue(longitudActivos == activos.size());
+
+			log.info("Lista de comics activos");
+			mostrarLista(activos);	
+			
 		}catch(Exception e)
 		{
 			Assert.assertEquals(e.getMessage(), "El numero de comics activos no es el esperado");
@@ -137,7 +148,7 @@ public class CreacionComicTest {
 	/**
 	 * 
 	 * Metodo encargado de retornar la lista de los comics activos 
-	 * <b>Caso de Uso</b>
+	 * <b>Caso de Uso</b> obtener comics en estado activos
 	 * @author Pablo
 	 * 
 	 * @return
@@ -156,34 +167,37 @@ public class CreacionComicTest {
 		return activos;
 	}
 	
+	
 	/**
 	 * 
 	 * Metodo encargado de retornar la lista de comics Inactivos mediante busqueda secuencial
-	 * <b>Caso de Uso</b>
+	 * <b>Caso de Uso</b> obtener comics en estado inactivos
 	 * @author Pablo
 	 * 
 	 * @return
 	 */
-	private static ArrayList<ComicDTO> getComicsInactivos()
-	{
+	private static ArrayList<ComicDTO> getComicsInactivos(){
+		int cont = 0;
 		//arreglo local
 		ArrayList<ComicDTO> inactivos = new ArrayList<ComicDTO>();
 		for(ComicDTO comic:comics)
-		{
+		{	
+		
 			if(comic.getEstadoEnum().equals(EstadoEnum.INACTIVO))
 			{
+				cont+=1;
 				inactivos.add(comic);
 			}
 				
 		}
-	
+		
 		return inactivos;
 	}
 	
 	/**
 	 * 
 	 * Metodo encargado de listar los comics especificados por nombre y estado
-	 * <b>Caso de Uso</b>
+	 * <b>Caso de Uso</b> Imprimir los comics filtrados
 	 * @author Pablo
 	 * 
 	 * @param lista
@@ -196,34 +210,6 @@ public class CreacionComicTest {
 			System.out.println("Nombre: "+comic.getNombre()+ "\nEstado: "+comic.getEstadoEnum().toString());
 		}
 	}
-	
-	
-	
-	@Test
-	public void validarResultadoSumaFallido() {
-		log.info("Inicia ejecucion del metodo validarResultadoSumaFallido()");
-		
-		int numero1 = 300;
-		int numero2 = 150;
-		int resultado = 455;
-		
-		try {
-			//Se espera un resultado true
-			Assert.assertTrue(resultado != (numero1 + numero2));
-			
-			if(resultado != (numero1 + numero2)) {
-				log.info("Se ha generado un error funcional probando el test validarResultadoSumaFallido()");
-				throw new Exception("La suma ha fallado en el calculo");
-			}
-		} catch (Exception e) {
-			Assert.assertEquals(e.getMessage(), "La suma ha fallado en el calculo");
-		}
-		
-		log.info("Finaliza la ejecucion del metodo validarResultadoSumaFallido()");
-	}
-	
-	
-	
 	
 	/**
 	 * 
@@ -241,10 +227,7 @@ public class CreacionComicTest {
 		//crear configuración básica
 		CreacionComicTest test = new CreacionComicTest();
 		test.validarComicsActivos();
-		
-		
-		
-		
+		test.validarComicsInactivos();
 		
 	}
 	

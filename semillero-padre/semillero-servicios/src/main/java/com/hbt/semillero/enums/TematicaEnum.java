@@ -3,7 +3,7 @@ package com.hbt.semillero.enums;
 
 /**
  * 
- * <b>Descripción:<b> Clase que determina la clasificación de las temáticas asignadas a un comic
+ * <b>Descripción:<b> Enumerador que categoriza las temáticas asignadas a un comic
  * <b>Caso de Uso:<b> 
  * @author Pablo
  * @version

@@ -7,6 +7,14 @@ import java.time.LocalDate;
 import com.hbt.semillero.enums.EstadoEnum;
 import com.hbt.semillero.enums.TematicaEnum;
 
+
+/**
+ * 
+ * <b>Descripción:<b> Clase DTO
+ * <b>Caso de Uso:<b> 
+ * @author Pablo
+ * @version
+ */
 public class ComicDTO implements Serializable {
 		
 	/**
@@ -14,17 +22,53 @@ public class ComicDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * Atributo que representa el id del comic
+	 */
 	private Long id;
+	/**
+	 * Atributo que representa el nombre de comic
+	 */
 	private String nombre;
+	/**
+	 * Atributo que representa el nombre del editorial
+	 */
 	private String editorial;
+	/**
+	 * Atributo que categoriza la temática del comic
+	 */
 	private TematicaEnum tematicaeEnum;
+	/**
+	 * Atributo que determina el tipo de revista
+	 */
 	private String coleccion;
+	/**
+	 * Atributo que representa el número de páginas que contiene el comic
+	 */
 	private Integer numeroPaginas;
+	/**
+	 * Atributo que representa el precio del comic
+	 */
 	private BigDecimal precio;
+	/**
+	 * Atributo que representa los autores
+	 */
 	private String autores;
+	/**
+	 * Atribuyo que determina si el comic tiene color(true) o es a blanco y negro(false)
+	 */
 	private boolean color;
+	/**
+	 * Atributo que representa la fecha desde el momento que se actualiza en stock
+	 */
 	private LocalDate fechaVenta;
+	/**
+	 * Atributo que representa el estado de stock del comic
+	 */
 	private EstadoEnum estadoEnum;
+	/**
+	 * Atributo que muestra la cantidad de articulos de este comic
+	 */
 	private Integer cantidad;
 	/**
 	 * Constructor de la clase.

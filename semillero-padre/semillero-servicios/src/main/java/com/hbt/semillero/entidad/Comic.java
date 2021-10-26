@@ -17,8 +17,10 @@ import javax.persistence.Table; //librería persistence para el mapeo de clases 
 import com.hbt.semillero.enums.EstadoEnum;
 import com.hbt.semillero.enums.TematicaEnum;
 
+
+
 @Entity
-@Table(name = "Comic") //recibe el nombre de la tabla
+@Table(name = "COMIC") //recibe el nombre de la tabla
 
 public class Comic implements Serializable {
 	
@@ -272,22 +274,6 @@ public class Comic implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
-	
-	
-		
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-
-	
 	
 	
 }

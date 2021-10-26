@@ -30,7 +30,7 @@ public class OperacionesAritmeticasTest {
 	 * @author Pablo
 	 *
 	 */
-	@Test	
+	@Test(enabled=false)	
 	public void validarResultadoSumaExitosa()
 	{
 		log.debug("Inicia ejecución del método validarResultadoSumaExitoso()");
@@ -69,7 +69,7 @@ public class OperacionesAritmeticasTest {
 	 *
 	 */
 	
-	@Test
+	@Test(enabled = false)
 	public void validarResultadoSumaFallido()
 	{
 		log.info("Inicia ejecución del metodo validarResultadoSumaFallido()");
