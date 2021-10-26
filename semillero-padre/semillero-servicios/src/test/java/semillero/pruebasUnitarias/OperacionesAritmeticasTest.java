@@ -57,7 +57,7 @@ public class OperacionesAritmeticasTest {
 	{
 		OperacionesAritmeticasTest op = new OperacionesAritmeticasTest();
 		op.inicializar();
-		op.validarResultadoSumaExitosa();
+		op.validarResultadoSumaFallido();
 	
 	}
 	
