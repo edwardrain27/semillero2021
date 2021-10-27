@@ -141,7 +141,7 @@ public class CreacionComicTest {
 			Assert.assertTrue(longitudActivos == activos.size());
 
 			log.info("Lista de comics activos");
-			System.out.println(activos);	
+			System.out.println(mostrarLista(activos));	
 			
 		}catch(Exception e)
 		{
