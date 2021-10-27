@@ -4,6 +4,7 @@ import com.hbt.semillero.dto.ComicDTO;
 import com.hbt.semillero.entidad.Comic;
 import com.hbt.semillero.enums.EstadoEnum;
 import com.hbt.semillero.enums.TematicaEnum;
+import com.hbt.semillero.excepciones.OperacionInactivos;
 
 import java.util.ArrayList;
 
@@ -94,6 +95,11 @@ public class CreacionComicTest {
 		try {
 			
 			inactivos = getComicsInactivos();
+			if(inactivos.size() >0 )
+			{
+				throw new OperacionInactivos( "Se ha detectado que de " + comics.size() + " comics se encontraron que " +(comics.size()-inactivos.size()) + "  se encuentran activos y " +
+						inactivos.size() + " inactivos. Los comics inactivos son: " + mostrarLista(inactivos));
+			}
 			
 		}catch(Exception e)
 		{
@@ -135,7 +141,7 @@ public class CreacionComicTest {
 			Assert.assertTrue(longitudActivos == activos.size());
 
 			log.info("Lista de comics activos");
-			mostrarLista(activos);	
+			System.out.println(activos);	
 			
 		}catch(Exception e)
 		{
@@ -187,9 +193,12 @@ public class CreacionComicTest {
 			{
 				cont+=1;
 				inactivos.add(comic);
+			
 			}
+			
 				
 		}
+		
 		
 		return inactivos;
 	}
@@ -203,12 +212,14 @@ public class CreacionComicTest {
 	 * @param lista
 	 */
 	
-	public static void mostrarLista(ArrayList<ComicDTO> lista)
+	public static String mostrarLista(ArrayList<ComicDTO> lista)
 	{
+		String msg = "";
 		for(ComicDTO comic:lista) {
 			
-			System.out.println("Nombre: "+comic.getNombre()+ "\nEstado: "+comic.getEstadoEnum().toString());
+			msg+="\nNombre: "+comic.getNombre()+ "\nEstado: "+comic.getEstadoEnum().toString();
 		}
+		return msg;
 	}
 	
 	/**
