@@ -15,7 +15,7 @@ import com.hbt.semillero.enums.TematicaEnum;
  * @author Pablo
  * @version
  */
-public class ComicDTO implements Serializable {
+public class ComicDTO extends ResultadoDTO implements Serializable {
 		
 	/**
 	 * Atributo que determina  

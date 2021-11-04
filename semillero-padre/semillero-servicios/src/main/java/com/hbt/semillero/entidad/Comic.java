@@ -34,10 +34,10 @@ public class Comic implements Serializable {
 	@Id	
 	@SequenceGenerator(allocationSize= 1, name = "COMIC_SCID_GENERATOR",sequenceName = "SEQ_COMIC" )
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "COMIC_SCID_GENERATOR")
-	@Column(name = "SCID")
+	@Column(name = "SCID", nullable = false)
 	private Long id;
 	
-	@Column(name = "SCNOMBRE")
+	@Column(name = "SCNOMBRE", nullable = false)
 	private String nombre;
 	
 	@Column(name = "SCEDITORIAL")
